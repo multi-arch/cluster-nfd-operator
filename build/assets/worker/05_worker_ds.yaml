@@ -27,6 +27,12 @@ spec:
               - matchExpressions:
                   - key: node-role.kubernetes.io/worker
                     operator: Exists
+              - matchExpressions:
+                - key: kubernetes.io/arch
+                  operator: In
+                  values:
+                  - amd64
+                  - arm64
       hostNetwork: true
       serviceAccount: nfd-worker
       readOnlyRootFilesystem: true
