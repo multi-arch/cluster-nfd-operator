@@ -24,7 +24,7 @@ spec:
         control-plane: controller-manager
     spec:
       affinity:
-        nodeaffinity:
+        nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
               - matchExpressions:
@@ -32,7 +32,7 @@ spec:
                   operator: In
                   values:
                   - amd64
-                  - arm64
+                  # -arm64
       serviceAccountName: nfd-operator
       containers:
         - name: manager

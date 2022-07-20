@@ -14,7 +14,7 @@ spec:
         app: nfd-topology-updater
     spec:
       affinity:
-        nodeaffinity:
+        nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
               - matchExpressions:
@@ -22,7 +22,7 @@ spec:
                   operator: In
                   values:
                   - amd64
-                  - arm64
+                  # -arm64
       containers:
       - args:
         - -server=nfd-master:$(NFD_MASTER_SERVICE_PORT)

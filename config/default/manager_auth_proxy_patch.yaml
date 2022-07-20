@@ -9,7 +9,7 @@ spec:
   template:
     spec:
       affinity:
-        nodeaffinity:
+        nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
               - matchExpressions:
@@ -17,7 +17,7 @@ spec:
                   operator: In
                   values:
                   - amd64
-                  - arm64
+                  # -arm64
       containers:
         - name: kube-rbac-proxy
           image: kube-rbac-proxy

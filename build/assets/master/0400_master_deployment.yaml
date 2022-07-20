@@ -14,16 +14,6 @@ spec:
       labels:
         app: nfd-master
     spec:
-      affinity:
-        nodeaffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-              - matchExpressions:
-                - key: kubernetes.io/arch
-                  operator: In
-                  values:
-                  - amd64
-                  - arm64
       serviceAccount: nfd-master
       serviceAccountName: nfd-master
       dnsPolicy: ClusterFirstWithHostNet
@@ -37,6 +27,14 @@ spec:
         operator: Equal
       affinity:
         nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                - key: kubernetes.io/arch
+                  operator: In
+                  values:
+                  - amd64
+                  # -arm64
           preferredDuringSchedulingIgnoredDuringExecution:
           - preference:
               matchExpressions:
